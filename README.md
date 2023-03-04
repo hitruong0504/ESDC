@@ -1,4 +1,4 @@
 # ESDC
-*** Enterprise Systems Development Concept. ***
+***Enterprise Systems Development Concept.***
 # Programming Language
 > Java (Only)
