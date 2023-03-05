@@ -7,8 +7,11 @@ import java.util.*;
 public class StudentManagementImpl implements StudentManagement {
     
     ArrayList<Student> students;
-    ArrayList<Student> result1 = new ArrayList<>();
-    ArrayList<Student> result2 = new ArrayList<>();
+    /*
+     * ascendent list and descendent list by gpa
+     */
+    ArrayList<Student> ASC_list = new ArrayList<>();
+    ArrayList<Student> DES_list = new ArrayList<>();
 
     public StudentManagementImpl()
     {
@@ -37,18 +40,19 @@ public class StudentManagementImpl implements StudentManagement {
                 students.add(student);
             }
             for (Student s : this.students) {
-                result1.add(s);
-                result2.add(s);
+                ASC_list.add(s);
+                DES_list.add(s);
             }
 
-            Collections.sort(result1, new Comparator<Student>() {
+            // sort by gpa
+            Collections.sort(DES_list, new Comparator<Student>() {
                 @Override
                 public int compare(Student o1, Student o2) {
                     return Double.compare(o2.getGpa(), o1.getGpa());
                 }
             });
 
-            Collections.sort(result2, new Comparator<Student>() {
+            Collections.sort(ASC_list, new Comparator<Student>() {
                 @Override
                 public int compare(Student o1, Student o2) {
                     return Double.compare(o1.getGpa(), o2.getGpa());
@@ -256,7 +260,7 @@ public class StudentManagementImpl implements StudentManagement {
         // Insert your code here ...
         ArrayList<Student> found = new ArrayList<>();
         int count = 0;
-        for (Student s : result1) {
+        for (Student s : DES_list) {
             if (count < 10) {
                 found.add(s);
                 count++;
@@ -271,7 +275,7 @@ public class StudentManagementImpl implements StudentManagement {
         // Insert your code here ...
         ArrayList<Student> found = new ArrayList<>();
         int count = 0;
-        for (Student s : result1) {
+        for (Student s : DES_list) {
             if (s.getGender().equals(gender) && count < 10) {
                 found.add(s);
                 count++;
@@ -286,7 +290,7 @@ public class StudentManagementImpl implements StudentManagement {
         // Insert your code here ...
         ArrayList<Student> found = new ArrayList<>();
         int count = 0;
-        for (Student s : result1) {
+        for (Student s : DES_list) {
             if (s.getMajor().equals(major) && count < 10) {
                 found.add(s);
                 count++;
@@ -301,7 +305,7 @@ public class StudentManagementImpl implements StudentManagement {
         // Insert your code here ...
         ArrayList<Student> found = new ArrayList<>();
         int count = 0;
-        for (Student s : result2) {
+        for (Student s : ASC_list) {
             if (s.getGender().equals(gender) && count < 10) {
                 found.add(s);
                 count++;
@@ -316,7 +320,7 @@ public class StudentManagementImpl implements StudentManagement {
         // Insert your code here ...
         ArrayList<Student> found = new ArrayList<>();
         int count = 0;
-        for (Student s : result2) {
+        for (Student s : ASC_list) {
             if (s.getMajor().equals(major) && count < 10) {
                 found.add(s);
                 count++;
